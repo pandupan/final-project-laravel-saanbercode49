@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PertanyaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//CRUD
+
+Route::get('/kategori/create',[KategoriController::class, 'create']);
+Route::post('/kategori',[KategoriController::class, 'store']);
+Route::get('/kategori',[KategoriController::class, 'index']);
+Route::get('/kategori/{id}', [KategoriController::class, 'show']);
+Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
+Route::put('/kategori/{id}', [KategoriController::class, 'update']);
+Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
+
+//CRUD Pertanyaan
+// Route::resource('pertanyaan', PertanyaanController::class);
