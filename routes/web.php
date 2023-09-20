@@ -17,7 +17,7 @@ use App\Http\Controllers\PertanyaanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('template');
 });
 
 //CRUD Kategori
