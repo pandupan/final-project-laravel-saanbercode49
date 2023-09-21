@@ -6,9 +6,9 @@
     <title>Detail Pertanyaan</title>
 </head>
 <body>
-    <a href="/pertanyaan">kembali</a>
-    <img src="{{asset('/image/'. $pertanyaan->gambar)}}" class="img-fuild">
-    <h1>{{$pertanyaan->title}}</h1>
-    <a href="/komentar">Komentar</a>
+    <a href="/komentar">kembali</a>
+    <img src="{{asset('/image/'. $komentar->gambar)}}" class="img-fuild">
+    <h1>{{ Str::limit($komentar->content, 50)}}</h1>
+    <p>{{$komentar->content}}</p>
 </body>
 </html>

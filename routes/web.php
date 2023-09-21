@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PertanyaanController;
+use App\Http\Controllers\KomentarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,4 @@ Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
 
 //CRUD Pertanyaan
 Route::resource('pertanyaan', PertanyaanController::class);
+Route::resource('komentar', KomentarController::class);

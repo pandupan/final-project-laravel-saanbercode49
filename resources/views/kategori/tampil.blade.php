@@ -58,7 +58,7 @@
             </div>
             <div class="p-3">
               <div class="card width: 18rem">
-                <h3 class="m-3">mulai buat pertanyaanmu <a href="">disini</a></h3>
+                <h3 class="m-3">mulai buat pertanyaanmu <a href="/pertanyaan/create">disini</a></h3>
                 <img class="img-fluid w-50" src="https://img.freepik.com/free-vector/meeting-concept-illustration_114360-717.jpg?w=826&t=st=1695271132~exp=1695271732~hmac=622cbdf54a778541b19858d0ee405dcef2b51c7519a9fdc40e08f81176dd9f02" alt="">
 
               </div>
