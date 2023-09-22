@@ -15,6 +15,7 @@ class PertanyaanController extends Controller
     public function index()
     {
         $pertanyaan = Pertanyaan::all();
+        
         return view('pertanyaan.tampil', ['pertanyaan' => $pertanyaan]);
     }
     
@@ -65,6 +66,7 @@ class PertanyaanController extends Controller
 
         return view('pertanyaan.detail', ['pertanyaan' => $pertanyaan]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.

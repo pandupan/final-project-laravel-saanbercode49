@@ -18,19 +18,30 @@ use App\Http\Controllers\KomentarController;
 */
 
 Route::get('/', function () {
-    return view('user');
+    return view('user.user');
 });
 
-//CRUD Kategori
 
-Route::get('/kategori/create',[KategoriController::class, 'create']);
-Route::post('/kategori',[KategoriController::class, 'store']);
+
+
+Route::group(['middleware' => ['auth']], function () {
+    
+    //CRUD Kategori
+    Route::get('/kategori/create',[KategoriController::class, 'create']);
+    Route::post('/kategori',[KategoriController::class, 'store']);
+    Route::get('/kategori/{id}', [KategoriController::class, 'show']);
+    Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
+    Route::put('/kategori/{id}', [KategoriController::class, 'update']);
+    Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
+    
+    //CRUD Pertanyaan
+    Route::resource('pertanyaan', PertanyaanController::class);
+    Route::resource('komentar', KomentarController::class);
+    Auth::routes();
+    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+});
+
 Route::get('/kategori',[KategoriController::class, 'index']);
-Route::get('/kategori/{id}', [KategoriController::class, 'show']);
-Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
-Route::put('/kategori/{id}', [KategoriController::class, 'update']);
-Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
-
-//CRUD Pertanyaan
-Route::resource('pertanyaan', PertanyaanController::class);
-Route::resource('komentar', KomentarController::class);
+Auth::routes();

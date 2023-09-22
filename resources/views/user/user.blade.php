@@ -28,7 +28,7 @@
  
              <!-- Inner sidebar body -->
              <div class="inner-sidebar-body p-3 text-center">
-                 <h5 class="mb-5">hallo {namanya}</h5>
+                 <h5 class="mb-5">hallo {{auth::user()->name}}</h5>
                  <a href="/kategori" class="btn btn-info">Mulai</a>
              </div>
              <!-- /Inner sidebar body -->
@@ -49,13 +49,13 @@
                  <h2 class="text-center">data user</h2>
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
-                              <h5 class="card-title text-center">disini nama nya </h5>
-                              <p class="card-text text-center">bio</p>
+                              <h5 class="card-title text-center">{{auth::user()->name}}</h5>
+                              <p class="card-text text-center"> </p>
                             </div>
                             <ul class="list-group list-group-flush">
-                              <li class="list-group-item">emailnya</li>
-                              <li class="list-group-item">umurnya</li>
-                              <li class="list-group-item">alamatnya</li>
+                              <li class="list-group-item"> </li>
+                              <li class="list-group-item"> </li>
+                              <li class="list-group-item"> </li>
                             </ul>
                             <div class="card-body d-flex justify-content-between">
                                 <a href="" class="btn-sm btn-warning w-50 mr-1">Edit</a>
