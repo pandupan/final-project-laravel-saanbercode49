@@ -46,12 +46,22 @@ class KategoriController extends Controller
     /**
      * Display the specified resource.
      */
+    // public function show(string $id)
+    // {
+    //     $kategori = DB::table('kategori')->find($id);
+
+    //     return view('kategori.detail', ['kategori' => $kategori]);
+    // }
+
     public function show(string $id)
     {
         $kategori = DB::table('kategori')->find($id);
-
-        return view('kategori.detail', ['kategori' => $kategori]);
+        $semuaKategori = DB::table('kategori')->get();
+    
+        return view('kategori.detail', ['kategori' => $kategori, 'semuaKategori' => $semuaKategori]);
+        
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -11,5 +11,5 @@ class Pertanyaan extends Model
 
     protected $table = 'pertanyaan';
 
-    protected $fillable = ['content', 'gambar', 'tanggal', 'kategori_id', 'user_id'];
+    protected $fillable = ['title', 'content', 'gambar', 'tanggal', 'kategori_id', 'user_id'];
 }

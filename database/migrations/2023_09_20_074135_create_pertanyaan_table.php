@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('pertanyaan', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->text('content');
             $table->string('gambar');
-            $table->integer('tanggal');
             $table->unsignedBigInteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('kategori');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

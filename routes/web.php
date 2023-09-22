@@ -17,10 +17,10 @@ use App\Http\Controllers\PertanyaanController;
 */
 
 Route::get('/', function () {
-    return view('template');
+    return view('user');
 });
 
-//CRUD
+//CRUD Kategori
 
 Route::get('/kategori/create',[KategoriController::class, 'create']);
 Route::post('/kategori',[KategoriController::class, 'store']);
@@ -31,4 +31,4 @@ Route::put('/kategori/{id}', [KategoriController::class, 'update']);
 Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
 
 //CRUD Pertanyaan
-// Route::resource('pertanyaan', PertanyaanController::class);
+Route::resource('pertanyaan', PertanyaanController::class);
