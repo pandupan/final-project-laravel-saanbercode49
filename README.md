@@ -8,7 +8,7 @@ Syahrul Ramadhan
 Tema Project : Forum Diskusi
 
 ERD :
-https://ibb.co/60VnSVN
+![Alt text](image.png)
 
 Link Video Demo : 
 https://drive.google.com/file/d/1YApxy09xWsyLfnV_4V7mlCOMoZxTECFK/view?usp=sharing
