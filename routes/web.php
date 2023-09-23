@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\KategoriController;
@@ -17,9 +18,6 @@ use App\Http\Controllers\KomentarController;
 |
 */
 
-Route::get('/', function () {
-    return view('user.user');
-});
 
 
 
@@ -33,13 +31,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']);
     Route::put('/kategori/{id}', [KategoriController::class, 'update']);
     Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
+
+    route::resource('/', ProfileController::class)->only(['index', 'update']);
     
     //CRUD Pertanyaan
     Route::resource('pertanyaan', PertanyaanController::class);
-    Route::resource('komentar', KomentarController::class);
     Auth::routes();
     
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    route::post('/komentar/{pertanyaan_id}', [KomentarController::class, 'create'] );
     
 });
 

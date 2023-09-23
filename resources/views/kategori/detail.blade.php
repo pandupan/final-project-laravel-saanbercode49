@@ -22,7 +22,7 @@
              <!-- Inner sidebar header -->
              <div class="inner-sidebar-header justify-content-center">
                  <a href="/"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
-                      USER</a>
+                    {{auth::user()->name}}</a>
              </div>
              <!-- /Inner sidebar header -->
  
@@ -48,9 +48,9 @@
          
              <h5>Semua kategori :</h5>
              <ul class="list-group mb-4">
-                 @foreach ($semuaKategori as $item)
-                     <a href="/kategori/{{$item->id}}">
-                         <li  class="list-group-item mb-1">{{$item->nama}}</li> 
+                 @foreach ($semuaKategori as $ini)
+                     <a href="/kategori/{{$ini->id}}">
+                         <li  class="list-group-item mb-1">{{$ini->nama}}</li> 
                     </a>
                  @endforeach
              </ul>
@@ -80,80 +80,32 @@
                      </div>
 
                      <!-- isi pertanyaan -->
-                 <div class="card mb-2">
-                     <div class="card-body p-2 p-sm-3">
-                         <div class="media forum-item">
-                             <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                             <div class="media-body">
-                                 <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">Realtime fetching data</a></h6>
-                                 <p class="text-secondary">
-                                     lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                                 </p>
-                                 <p class="text-muted"><a href="javascript:void(0)">drewdan</a> replied <span class="text-secondary font-weight-bold">13 minutes ago</span></p>
-                             </div>
-                             <div class="text-muted small text-center align-self-center">
-                                 <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
-                                 <span><i class="far fa-comment ml-2"></i> 3</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             
-             <div class="inner-main-body p-2 p-sm-3 collapse forum-content">
-                 <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
-                 <div class="card mb-2">
-                     <div class="card-body">
-                         <div class="media forum-item">
-                             <a href="javascript:void(0)" class="card-link">
-                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
-                                 <small class="d-block text-center text-muted">Newbie</small>
-                             </a>
-                             <div class="media-body ml-3">
-                                 <a href="javascript:void(0)" class="text-secondary">Mokrani</a>
-                                 <small class="text-muted ml-2">1 hour ago</small>
-                                 <h5 class="mt-1">Realtime fetching data</h5>
-                                 <div class="mt-3 font-size-sm">
-                                     <p>Hellooo :)</p>
-                                     <p>
-                                         I'm newbie with laravel and i want to fetch data from database in realtime for my dashboard anaytics and i found a solution with ajax but it dosen't work if any one have a simple solution it will be
-                                         helpful
-                                     </p>
-                                     <p>Thank</p>
-                                 </div>
-                             </div>
-                             <div class="text-muted small text-center">
-                                 <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
-                                 <span><i class="far fa-comment ml-2"></i> 3</span>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <!-- komentar didalam pertanyaan -->
-                 <div class="card mb-2">
-                     <div class="card-body">
-                         <div class="media forum-item">
-                             <a href="javascript:void(0)" class="card-link">
-                                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle" width="50" alt="User" />
-                                 <small class="d-block text-center text-muted">Pro</small>
-                             </a>
-                             <div class="media-body ml-3">
-                                 <a href="javascript:void(0)" class="text-secondary">drewdan</a>
-                                 <small class="text-muted ml-2">1 hour ago</small>
-                                 <div class="mt-3 font-size-sm">
-                                     <p>What exactly doesn't work with your ajax calls?</p>
-                                     <p>Also, WebSockets are a great solution for realtime data on a dashboard. Laravel offers this out of the box using broadcasting</p>
-                                 </div>
-                                 <button class="btn btn-xs text-muted has-icon"><i class="fa fa-heart" aria-hidden="true"></i>1</button>
-                                 <a href="javascript:void(0)" class="text-muted small">Reply</a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <!-- /komentar didalam pertanyaan -->
-            <!-- /isi pertanyaan -->
-             </div>
- 
+                     @forelse ($kategori->pertanyaan as $item)
+                     <div class="card mb-2">
+                        <div class="card-body p-2 p-sm-3">
+                            <div class="media forum-item">
+                                <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                <div class="media-body">
+                                    <h6><a href="/pertanyaan/{{$item->id}}" class="text-body">{{$item->title}}</a></h6>
+                                    <p class="text-secondary">
+                                    {{ Str::limit($item->content, 50)}}
+                                    </p>
+                                    <p class="text-muted"> diposting oleh : <a href="/">{{auth::user()->name}}</a></p>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <a href="/pertanyaan/{{$item->id}}/edit" class="btn-sm btn-warning mr-2">Edit</a>
+                                    <form action="/pertanyaan/{{$item->id}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="submit" value="Delete" class="btn-sm btn-danger">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                     @empty
+                         <h3>tidak ada pertanyaan di kategori ini</h3>
+                     @endforelse
          </div>
      </div>
  

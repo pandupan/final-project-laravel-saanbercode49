@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Kategori;
 
 class KategoriController extends Controller
 {
@@ -55,7 +56,7 @@ class KategoriController extends Controller
 
     public function show(string $id)
     {
-        $kategori = DB::table('kategori')->find($id);
+        $kategori = kategori::find($id);
         $semuaKategori = DB::table('kategori')->get();
     
         return view('kategori.detail', ['kategori' => $kategori, 'semuaKategori' => $semuaKategori]);

@@ -11,5 +11,13 @@ class Komentar extends Model
 
     protected $table = 'komentar';
 
-    protected $fillable = ['title', 'content', 'gambar', 'tanggal', 'pertanyaan_id', 'user_id'];
+    protected $fillable = [ 'content', 'pertanyaan_id', 'user_id'];
+
+    public function pertanyaan(){
+        return $this->belongsTo(pertanyaan::class, 'pertanyaan_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(user::class, 'user_id');
+    }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('komentar', function (Blueprint $table) {
             $table->id();
             $table->text('content');
-            $table->string('gambar');
+            $table->integer('user_id');
             $table->unsignedBigInteger('pertanyaan_id');
             $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan');
             $table->timestamps();

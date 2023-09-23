@@ -27,7 +27,7 @@
               {{auth::user()->name}}
               </a>
               <div class="nav-item">
-                <a class="btn btn-sm btn-danger" href="{{ route('logout') }}"
+                <a class="btn btn-sm btn-danger" href="/kategori"
                 onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}

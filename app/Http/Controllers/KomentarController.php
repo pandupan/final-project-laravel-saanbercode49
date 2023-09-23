@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\Pertanyaan;
+use illuminate\Support\Facades\Auth;
 use App\Models\Komentar;
 
 class KomentarController extends Controller
@@ -21,10 +22,24 @@ class KomentarController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(request $request, $id)
     {
-        $pertanyaan = Pertanyaan::all();
-        return view('komentar.tambah', ['pertanyaan' => $pertanyaan]);
+        $request->validate([
+            'content' => 'required',
+        ]);
+
+
+        $iduser = Auth::id();
+
+        $komentar = new komentar;
+
+        $komentar->user_id = $iduser;
+        $komentar->content = $request->content;
+        $komentar->pertanyaan_id = $id;
+        
+        $komentar->save();
+
+        return redirect('/pertanyaan/'. $id);
     }
 
     /**

@@ -24,7 +24,7 @@
                 <!-- Inner sidebar header -->
                 <div class="inner-sidebar-header justify-content-center">
                     <a href="/"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
-                         USER</a>
+                      {{auth::user()->name}}</a>
                 </div>
                 <!-- /Inner sidebar header -->
     

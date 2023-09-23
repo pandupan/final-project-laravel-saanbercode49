@@ -21,8 +21,8 @@
          <div class="inner-sidebar">
              <!-- Inner sidebar header -->
              <div class="inner-sidebar-header justify-content-center">
-                 <a href=""><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
-                      USER</a>
+                 <a href="/"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                  {{auth::user()->name}}</a>
              </div>
              <!-- /Inner sidebar header -->
  
@@ -46,26 +46,26 @@
  
              <!-- Inner main body -->         
              <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
-                 <h2 class="text-center">data user</h2>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title text-center">{{auth::user()->name}}</h5>
-                              <p class="card-text text-center"> </p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                              <li class="list-group-item"> </li>
-                              <li class="list-group-item"> </li>
-                              <li class="list-group-item"> </li>
-                            </ul>
-                            <div class="card-body d-flex justify-content-between">
-                                <a href="" class="btn-sm btn-warning w-50 mr-1">Edit</a>
-                                <form action="" method="POST" class="w-50 ml-1">
-                                @csrf
-                                @method('delete')
-                                <input type="submit" value="Delete" class="btn-sm btn-danger w-100">
-                            </form>
-                            </div>
-                          </div>
+              <h2 class="text-center">edit data user</h2>
+              {{-- <form action="/{{$profile->id}}" method="POST">
+                @csrf
+                @method('put')
+              <div class="mb-3">
+                <label>Nama</label>
+                <input type="text" value="{{$detailProfile->user->name}}" class="@error('nama') is-invalid @enderror form-control" placeholder="Masukan Nama">
+              </div>
+              @error('nama')
+                <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+              <div class="mb-3">
+                <label>Deskripsi Kategori</label>
+                <textarea type="text" name="deskripsi" class="@error('deskripsi') is-invalid @enderror form-control" rows="4" cols="50" placeholder="Masukan Deskripsi Kategori">{{$kategori->deskripsi}}</textarea>
+              </div>
+              @error('deskripsi')
+                <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form> --}}
              </div>
  
          </div>
