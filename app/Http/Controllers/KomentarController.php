@@ -11,7 +11,7 @@ use App\Models\Komentar;
 class KomentarController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resourcen.
      */
     public function index()
     {

@@ -1,13 +1,14 @@
-final project
+KELOMPOK 6
 
-kelompok 6
+Anggota Kelompok :
+Pandu Pangestu
+Ega Aprianto
+Syahrul Ramadhan
 
-syahrul ramadhan
-pandu pangestu
-ega aprianto
+Tema Project : Forum Diskusi
 
-tema project : forum tanya jawab
+ERD :
+https://ibb.co/60VnSVN
 
-erd 
-
-![Alt text](image.png)
+Link Video Demo : 
+https://drive.google.com/file/d/1YApxy09xWsyLfnV_4V7mlCOMoZxTECFK/view?usp=sharing
