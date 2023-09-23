@@ -59,7 +59,7 @@
                                     <small class="d-block text-center text-muted">Newbie</small>
                                 </a>
                                 <div class="media-body ml-3">
-                                    <a href="javascript:void(0)" class="text-secondary">{{auth::user()->name}}</a>
+                                    <a href="" class="text-secondary"></a>
                                     <h5 class="mt-1">{{$pertanyaan->title}}</h5>
                                     <div class="mt-3 font-size-sm overflow-auto text-break">
                                         <p>{{$pertanyaan->content}}</p>

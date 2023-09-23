@@ -32,7 +32,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/kategori/{id}', [KategoriController::class, 'update']);
     Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
 
-    route::resource('/', ProfileController::class)->only(['index', 'update']);
+    route::get('/', [ProfileController::class, 'index']);
+    Route::get('/profile/{id}/edit', [ProfileController::class, 'edit']);
+    Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+
+    
+    
     
     //CRUD Pertanyaan
     Route::resource('pertanyaan', PertanyaanController::class);
@@ -41,6 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     route::post('/komentar/{pertanyaan_id}', [KomentarController::class, 'create'] );
+
     
 });
 

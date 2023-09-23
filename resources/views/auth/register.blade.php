@@ -5,10 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 ">
             <div class="card d-flex justify-content-between">
-                <div class="d-flex card-header">
-                    <img src="{{asset('gambar/register.png')}}" alt="test" class="img-fluid">
-                </div>
-
+                
                 <div class=" d-flex card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -114,6 +111,9 @@
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="d-flex card-header">
+                <img src="{{asset('gambar/register.png')}}" alt="test" class="img-fluid">
             </div>
         </div>
     </div>

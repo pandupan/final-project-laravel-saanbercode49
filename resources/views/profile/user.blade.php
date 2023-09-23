@@ -61,7 +61,7 @@
                               <li class="list-group-item">alamat : {{auth::user()->profile->alamat}}  </li>
                             </ul>
                             <div class="card-body d-flex justify-content-between">
-                                <a href="" class="btn-sm btn-warning w-50 mr-1">Edit</a>
+                                <a href="/profile/{{$profile->id}}/edit" class="btn-sm btn-warning w-50 mr-1">Edit</a>
                                 <form action="" method="POST" class="w-50 ml-1">
                                 @csrf
                                 @method('delete')

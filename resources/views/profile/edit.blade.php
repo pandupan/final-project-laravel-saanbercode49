@@ -28,7 +28,7 @@
  
              <!-- Inner sidebar body -->
              <div class="inner-sidebar-body p-3 text-center">
-                 <h5 class="mb-5">hallo {{auth::user()->name}}</h5>
+                 <h5 class="mb-5">edit profile</h5>
                  <a href="/kategori" class="btn btn-info">Mulai</a>
              </div>
              <!-- /Inner sidebar body -->
@@ -47,25 +47,32 @@
              <!-- Inner main body -->         
              <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
               <h2 class="text-center">edit data user</h2>
-              {{-- <form action="/{{$profile->id}}" method="POST">
+              <form method="POST" action="{{ route('profile.update', ['id' => $profile->id]) }}">
                 @csrf
                 @method('put')
               <div class="mb-3">
-                <label>Nama</label>
-                <input type="text" value="{{$detailProfile->user->name}}" class="@error('nama') is-invalid @enderror form-control" placeholder="Masukan Nama">
+                <label>umur</label>
+                <input type="number" value="{{$profile->umur}}" class="@error('umur') is-invalid @enderror form-control" placeholder="Masukan umur">
+              </div>
+              @error('umur')
+                <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+              <div class="mb-3">
+                <label>alamat</label>
+                <input type="text" value="{{$profile->alamat}}" class="@error('alamat') is-invalid @enderror form-control" placeholder="Masukan alamat">
               </div>
               @error('nama')
                 <div class="alert alert-danger">{{ $message }}</div>
               @enderror
               <div class="mb-3">
-                <label>Deskripsi Kategori</label>
-                <textarea type="text" name="deskripsi" class="@error('deskripsi') is-invalid @enderror form-control" rows="4" cols="50" placeholder="Masukan Deskripsi Kategori">{{$kategori->deskripsi}}</textarea>
+                <label>biodata</label>
+                <input type="text" value="{{$profile->biodata}}" class="@error('biodata') is-invalid @enderror form-control" placeholder="Masukan biodata">
               </div>
-              @error('deskripsi')
+              @error('biodata')
                 <div class="alert alert-danger">{{ $message }}</div>
               @enderror
               <button type="submit" class="btn btn-primary">Submit</button>
-            </form> --}}
+            </form>
              </div>
  
          </div>
